@@ -7,9 +7,7 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.mat }}
     steps:
       - id: mat
-        run: |
-          echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"}, \
-              {\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT"
+        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"}, {\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT"
   job0:
     needs: job1
     runs-on: ubuntu-latest
