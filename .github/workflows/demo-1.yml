@@ -10,7 +10,7 @@ jobs:
       run: |
           echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"}, \
           {\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
-  job2:
+  job0:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
