@@ -6,7 +6,7 @@ on:
       - fea*
 
 jobs:
-    My Job:
+  My Job:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello from a job"
