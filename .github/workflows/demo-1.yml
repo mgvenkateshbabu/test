@@ -4,12 +4,12 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      matrix: ${{ steps.set-matrix.outputs.mat }}
     steps:
-      – id: set-matrix
-      run: |
+      - id: mat
+        run: |
           echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"}, \
-          {\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
+              {\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT"
   job0:
     needs: job1
     runs-on: ubuntu-latest
