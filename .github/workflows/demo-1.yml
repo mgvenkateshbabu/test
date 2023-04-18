@@ -12,7 +12,5 @@ jobs:
   job0:
     needs: job1
     runs-on: ubuntu-latest
-#    strategy:
-#      matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
       – run: echo "carrot is fine"
