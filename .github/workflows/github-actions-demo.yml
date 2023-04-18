@@ -17,9 +17,15 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
-  Added-GitHub-Actions:
-    runs-on: ubuntu-latest
+  first_demo_job:
+    name: The first demo job
     steps:
-      - run: echo "Hi there. I added this."
-      - name: Check out repository code
-        uses: actions/checkout@v3
+      - name: Show the demo running
+        env:
+          VAR1: This is
+          VAR2: A Demo of
+          VAR3: GitHub Actions
+          VAR4: Workflow jobs
+        run: |
+          echo $VAR1 $VAR2 $VAR3 $VAR4.
+          <span style="font-weight: 400;">    </span>
