@@ -28,4 +28,4 @@ jobs:
           VAR3: GitHub Actions
           VAR4: Workflow jobs
         run: |
-          echo $VAR1 $VAR2 $VAR3 $VAR4.
+          echo "$VAR1" $VAR2 $VAR3 $VAR4.

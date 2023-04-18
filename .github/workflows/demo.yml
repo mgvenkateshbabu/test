@@ -1,0 +1,12 @@
+name: My Demo
+on:
+  push:
+    branches:
+      - main
+      - fea*
+
+jobs:
+    My Job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello from a job"
