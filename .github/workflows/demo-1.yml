@@ -1,16 +1,31 @@
 name: My WF
 on: push
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-#    outputs:
-#      matrix: ${{ steps.mat.outputs.mat }}
-    steps:
-      - id: mat
-#        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"}, {\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT"
-        run: echo "Brinjal is fine"
-  job0:
-    needs: job1
+  run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      – run: echo "carrot is fine"
+      - name: playload
+        run: echo ${{ github.event.client_payload.env }}
+      - name: List Files
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+          # git clone git@github:$GITHUB_REPOSITORY
+          # git checkout $GITHUB_SHA
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: List Files After Checkout
+        run: |
+          pwd
+          ls -a
+      - name: Simple JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: John
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
