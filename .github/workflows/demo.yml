@@ -10,3 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello from a job"
+      – name: Checkout repository
+        uses: actions/checkout@v3
+      – name: Read README.md
+        id: package
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./README.md
+      – name: Echo README.md
+        run: echo "${{ steps.package.outputs.content }}"
