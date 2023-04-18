@@ -20,3 +20,20 @@ jobs:
           path: ./README.md
       - name: Echo README.md
         run: echo "${{ steps.package.outputs.content }}"
+
+  second_job:
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [ 13, 14 ]
+        os: [ macos-latest, ubuntu-latest ]
+        experimental: [ false ]
+        include:
+          - node: 15
+            os: ubuntu-latest
+            experimental: true
+    steps:
+      - name: Simple Echo
+        run: echo "Hello from a job"
