@@ -18,6 +18,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
   first_demo_job:
+    runs-on: ubuntu-latest
     name: The first demo job
     steps:
       - name: Show the demo running
