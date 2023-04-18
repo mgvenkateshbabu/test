@@ -9,10 +9,10 @@ jobs:
       - id: mat
 #        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"}, {\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT"
         run: echo "Brinjal is fine"
-#  job0:
-#    needs: job1
-#    runs-on: ubuntu-latest
-##    strategy:
-##      matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
-#    steps:
-#      – run: echo "carrot is fine"
+  job0:
+    needs: job1
+    runs-on: ubuntu-latest
+#    strategy:
+#      matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
+    steps:
+      – run: echo "carrot is fine"
