@@ -16,3 +16,10 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  Added-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hi there. I added this."
+      - name: Check out repository code
+        uses: actions/checkout@v3
