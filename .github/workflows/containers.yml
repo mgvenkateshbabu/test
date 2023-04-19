@@ -9,3 +9,13 @@ jobs:
     steps:
       - name: log node version
         run: node -v
+
+jobs:
+  docker-steps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step with docker
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: "/bin/echo"
+          args: "Hello World"
