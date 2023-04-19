@@ -1,7 +1,7 @@
 on: [push]
 jobs:
   call-workflow-passing-data:
-    uses: reusable-wf.yml
+    uses: ./.github/workflows/reusable-wf.yml
     with:
       file-name: copper.txt
     secrets: inherit
