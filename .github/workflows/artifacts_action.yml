@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: create_file
         run: |
-          cat hello.txt
+          touch hello.txt
           echo "hello all" >> hello.txt
       - name: upload_file
         uses: actions/upload-artifact@v3
