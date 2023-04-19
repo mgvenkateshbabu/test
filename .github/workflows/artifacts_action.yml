@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create_file
-        run: cat "hello" >> hello.txt
+        run: |
+          cat hello.txt
+          echo "hello all" >> hello.txt
       - name: upload_file
         uses: actions/upload-artifact@v3
         with:
