@@ -17,6 +17,7 @@ jobs:
   first_demo_job:
     runs-on: ubuntu-latest
     name: Download file
+    needs: [Explore-GitHub-Actions]
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
