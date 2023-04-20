@@ -1,0 +1,39 @@
+name: My Demo
+on:
+  push:
+    branches:
+      - main
+      - fea*
+
+jobs:
+  My_Job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple Echo
+        run: echo "Hello from a job"
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Read README.md
+        id: package
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./README.md
+      - name: Echo README.md
+        run: echo "${{ steps.package.outputs.content }}"
+
+  second_job:
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [ 13, 14 ]
+        os: [ macos-latest, ubuntu-latest ]
+        experimental: [ false ]
+        include:
+          - node: 15
+            os: ubuntu-latest
+            experimental: true
+    steps:
+      - name: Simple Echo
+        run: echo "Hello from a job"

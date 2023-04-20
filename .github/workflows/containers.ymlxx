@@ -1,0 +1,20 @@
+name: Container
+on: push
+
+jobs:
+  docker-steps-1:
+    runs-on: ubuntu-latest
+    container:
+      image: node:10.18.0-jessie
+    steps:
+      - name: log node version
+        run: node -v
+
+  docker-steps-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step with docker
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: "/bin/echo"
+          args: "Hello World"

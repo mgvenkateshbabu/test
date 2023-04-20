@@ -1,0 +1,21 @@
+name: Reusable workflow example
+
+on:
+  workflow_call:
+    inputs:
+      file-name:
+        required: true
+        type: string
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create_file
+        run: |
+          touch ${{ inputs.file-name }}
+          echo "${{ inputs.file-name }} all" >> ${{ inputs.file-name }}
+      - name: upload_file
+        uses: actions/upload-artifact@v3
+        with:
+          path: ${{ inputs.file-name }}

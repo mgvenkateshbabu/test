@@ -1,0 +1,26 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create_file
+        run: |
+          touch hello.txt
+          echo "hello all" >> hello.txt
+      - name: upload_file
+        uses: actions/upload-artifact@v3
+        with:
+          name: hello-artifact
+          path: hello.txt
+
+  first_demo_job:
+    runs-on: ubuntu-latest
+    name: Download file
+    needs: [Explore-GitHub-Actions]
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: hello-artifact
+      - run: cat hello.txt

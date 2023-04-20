@@ -1,0 +1,14 @@
+on:
+  #[push]
+  workflow_dispatch
+jobs:
+  call-workflow-passing-data:
+    uses: ./.github/workflows/reusable-wf.yml
+    with:
+      file-name: copper.txt
+    secrets: inherit
+  call-workflow-passing-data-2:
+    uses: ./.github/workflows/reusable-wf.yml
+    with:
+      file-name: iron.txt
+    secrets: inherit
