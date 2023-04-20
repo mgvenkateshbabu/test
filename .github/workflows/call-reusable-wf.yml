@@ -1,4 +1,6 @@
-on: [push]
+on:
+  #[push]
+  workflow_dispatch
 jobs:
   call-workflow-passing-data:
     uses: ./.github/workflows/reusable-wf.yml
