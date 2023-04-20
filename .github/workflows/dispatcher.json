@@ -1,0 +1,6 @@
+{
+  "event_type": "my-sample-dispatcher-event",
+  "client_payload": {
+    "example-key": "example data"
+  }
+}
